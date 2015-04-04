@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Depot</title>
+  <title>Магазин книжек</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
-
+	<div id="banner">
+		<%= image_tag("logo.png")%>
+		<%= @page_title || "Магазин книжек" %>
+	</div>
+	<div id="columns"> 
+		<div id="side">
+			<ul>
+				<li> <a href="http://www..."> Домой </a></li>
+				<li> <a href="http://www..."> ЧаВо </a></li>		
+				<li> <a href="http://www..."> Новости </a></li>		
+				<li> <a href="http://www..."> Контакты </a></li>	
+			</ul>
+		</div>
+	</div>
+<div id="main">
 <%= yield %>
-
+</div>
 </body>
 </html>

@@ -7,4 +7,9 @@ class Product < ActiveRecord::Base
 		message: 'Допустимые форматы: JPEG, GIF, PNG'
 	}
 	validates :title, length: {minimum: 10}
+
+	def self.latest
+		Product.order(:updated_at).last
+		
+	end
 end
