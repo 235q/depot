@@ -3,7 +3,7 @@
 <% end %>
 
 <h1> Каталог </h1>
-	<% cache ['store', Product.last] do %>
+	<% cache ['store', Product.latest] do %>
 	 <% @products.each do |product| %>
 	<% cache ['entry', product] do %>	
 		<div class = "entry" >
@@ -12,8 +12,9 @@
 			<%= sanitize(product.description) %>
 			<div class="price_line" >
 				<span class="price"> 
-				<%= number_to_currency(product.price, locale: :ru)%>
+				<%= number_to_currency(product.price)%>
 			 </span>
+			 <%= button_to 'Добавить в корзину', line_items_path(product_id: product) %>
 		 </div>
 	</div>
 	<% end %>
